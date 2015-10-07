@@ -15,22 +15,26 @@ angular.module('todo-app')
         templateUrl: 'views/private/todos.html',
         controllerAs: 'ctrl',
         controller: 'TodoListController',
-        reloadOnSearch: false
-      })
-      .segment('todo-details', {
-        templateUrl: 'views/private/todo-details.html',
-        controllerAs: 'ctrl',
-        controller: 'TodoController',
         resolve: {
-          detail: function (TodoResource, $route) {
-            if ($route.current.params.id !== 'new') {
-              return TodoResource.get($route.current.params.id);
-            } else {
-              return TodoResource.$new();
-            }
+          todos: function(TodoResource){
+            return TodoResource.query({});
           }
         }
       })
+      //.segment('todo-details', {
+      //  templateUrl: 'views/private/todo-details.html',
+      //  controllerAs: 'ctrl',
+      //  controller: 'TodoController',
+      //  resolve: {
+      //    detail: function (TodoResource, $route) {
+      //      if ($route.current.params.id !== 'new') {
+      //        return TodoResource.get($route.current.params.id);
+      //      } else {
+      //        return TodoResource.$new();
+      //      }
+      //    }
+      //  }
+      //})
       .up();
 
     $routeProvider.otherwise({

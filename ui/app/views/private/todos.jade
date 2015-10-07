@@ -1,22 +1,12 @@
-.box
-  .box-wrapper
-    .box-header
-      i.settings-icon
-      span.header-text
-        | {{ 'navigation.passes' | translate }}
-    .box-content.text-centered.clearfix
-      table.table.ng-table-responsive(ng-table='tableParams')
-        tr(ng-repeat='passe in $data')
-          td(data-title='"label.passe.description" | translate')
-            | {{passe.description}}
-          td(data-title='"label.passe.price" | translate')
-            | {{passe.price}} {{passe.currency}}
-          td(data-title='"label.passe.active" | translate')
-            | {{passe.inactive}}
-          td(data-title='"label.actions" | translate')
-            a.hand(ng-click='ctrl.removePasse(passe)')
-              | {{ 'label.remove' | translate}}
-            a.hand(ng-href="#{{ 'logged.todo-details' | routeSegmentUrl: {id: plan.id} }}")
-              | {{ 'label.edit' | translate}}
-      a.btn.btn-primary.pull-right(ng-href="#{{ 'logged.todo-details' | routeSegmentUrl: {id: 'new'} }}")
-        | {{ 'label.newPass' | translate}}
+header#header
+  h1
+    | todos
+  form#todo-form(ng-submit='ctrl.addTodo()', novalidate='', ng-controller='TodoController')
+    input#new-todo(placeholder='What needs to be done?', ng-model='model.description', autofocus='')
+section#main(ng-show='true')
+  ul#todo-list
+    li(ng-repeat='todo in todos')
+      .view
+        label
+          | {{todo.description}}
+        button.destroy(ng-click='removeTodo(todo)')
