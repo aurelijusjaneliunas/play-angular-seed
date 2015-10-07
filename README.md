@@ -8,6 +8,10 @@ Requirements
 * Node 0.10.30
 * Npm 1.4.21 
 * Chrome extenstion RemoteLiveReload 0.0.46 (for live reload of the page)
+
+ECMAScript 6 support
+=============
+* Babelify transformer added
  
 Stack
 =============
