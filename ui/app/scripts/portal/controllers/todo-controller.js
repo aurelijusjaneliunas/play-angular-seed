@@ -1,10 +1,11 @@
-angular.module('todo-app').controller('TodoController', function ($scope, detail, todosOperations) {
-  $scope.todo = detail;
+angular.module('todo-app').controller('TodoController', function ($scope, todosOperations) {
 
-  this.addNewPass = function(){
-    if ($scope.passDetailForm.$valid) {
-      return todosOperations.addNewPass($scope.plan);
-    }
+  $scope.model = {
+    description: null
+  };
+
+  $scope.addTodo = function(){
+    todosOperations.addTodo($scope.model);
   };
 
 });

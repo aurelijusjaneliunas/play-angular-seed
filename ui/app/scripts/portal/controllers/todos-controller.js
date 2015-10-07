@@ -16,13 +16,15 @@ angular.module('todo-app').controller('TodoListController', function ($scope, ng
   });
   todoSearchLocationChangeHandler.start();
 
-  var DELETE_CALLBACK = function(){
+  var TABLE_CHANGE_CALLBACK = function(){
     $scope.tableParams.reload();
   };
 
-  this.removeTodo = function(passe){
-    todosOperations.deleteTodo(passe, DELETE_CALLBACK);
+  this.removeTodo = function(todo){
+    todosOperations.deleteTodo(todo, TABLE_CHANGE_CALLBACK);
   };
+
+
 
 
 });

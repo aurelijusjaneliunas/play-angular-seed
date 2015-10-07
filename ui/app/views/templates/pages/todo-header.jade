@@ -1,2 +1,4 @@
 h1
   | todos
+form#todo-form(ng-submit='addTodo()', novalidate='', ng-controller='TodoController')
+  input#new-todo(placeholder='What needs to be done?', ng-model='model.description', autofocus='')

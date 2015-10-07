@@ -275,7 +275,7 @@ module.exports = function (grunt) {
       dist: {
         src: ['<%= yeoman.app %>/scripts/**/*.js', '<%= yeoman.app %>/scripts/**/*.coffee'],
         options: {
-          transform: ['coffeeify']
+          transform: [['coffeeify'], ['babelify', { 'stage' : 0 }]]
         },
         dest: '.tmp/scripts/portal.js'
       }

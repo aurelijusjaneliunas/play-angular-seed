@@ -1,22 +1,20 @@
 angular.module('todo-app').service('todosOperations', function todosOperations(TodoResource, flash, messagesCatalog) {
 
-  this.deletePasse = function(passe, callback){
-    passe.destroy({ wait: true }).then(function(data){
-      //TODO add success delete message
+  this.deleteTodo = function(todo, callback){
+    todo.destroy({ wait: true }).then(function(data){
       callback();
     }, function(response){
       flash.error(messagesCatalog.getString('error.message.100'));
     });
   };
 
-  this.addNewPass = function(plass){
-    //PassResource.$new(pass);
-    plass.save().then(function(data){
-      //TODO add success delete message
-      //callback();
-      console.log('Save');
+  this.addTodo = function(todo, callback){
+    var newTodo = TodoResource.$new(todo);
+    newTodo.save().then(function(data){
+      callback();
     }, function(response){
       flash.error(messagesCatalog.getString('error.message.100'));
     });
   };
+
 });

@@ -5,6 +5,12 @@
 # Old home page
 GET           /oldHome                          controllers.Application.index()
 
+GET           /api/todos                        controllers.TodoController.getTodos()
+GET           /api/todos/:id                    controllers.TodoController.getTodo(id: String)
+DELETE        /api/todos/:id                    controllers.TodoController.deleteTodo(id: String)
+PUT           /api/todos/:id                    controllers.TodoController.updateTodo(id: String)
+POST          /api/todos                        controllers.TodoController.createTodo()
+
 GET           /messages.js                      controllers.Application.jsMessages()
 
 # Map static resources from the /public folder to the /assets URL path
