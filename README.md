@@ -1,6 +1,6 @@
-Merchant portal
+Play and angular seed
 =====================================================
-This is a self-care service for merchants. It allows merchant to publish data-x services.
+This is a sample application how play and angular work together
 
 Requirements
 =============
@@ -20,7 +20,7 @@ Stack
 
 Prepare development server
 =============
-    npm install -g yo bower grunt-cli gulp
+    npm install -g yo bower grunt-cli
 
 Run development server
 =============
