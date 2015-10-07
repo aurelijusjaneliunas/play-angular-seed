@@ -1,0 +1,14 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Old home page
+GET           /oldHome                          controllers.Application.index()
+
+GET           /messages.js                      controllers.Application.jsMessages()
+
+# Map static resources from the /public folder to the /assets URL path
+GET           /assets/*file                     controllers.Assets.at(path="/public", file)
+
+GET           /                                 com.tuplejump.playYeoman.Yeoman.index
+->            /                                 yeoman.Routes
