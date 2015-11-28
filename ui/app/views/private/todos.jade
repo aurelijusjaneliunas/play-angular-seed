@@ -1,7 +1,7 @@
 header#header
   h1
     | todos
-  form#todo-form(ng-submit='ctrl.addTodo()', novalidate='', ng-controller='TodoController')
+  form#todo-form(ng-submit='ctrl.addTodo()', novalidate='')
     input#new-todo(placeholder='What needs to be done?', ng-model='model.description', autofocus='')
 section#main(ng-show='true')
   ul#todo-list
@@ -9,4 +9,4 @@ section#main(ng-show='true')
       .view
         label
           | {{todo.description}}
-        button.destroy(ng-click='removeTodo(todo)')
+        button.destroy(ng-click='ctrl.removeTodo(todo)')
